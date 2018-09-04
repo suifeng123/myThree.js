@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+     <title></title>
+     <style>
+       body {
+       	margin: 0px;
+       	background-color: #000000;
+       	overflow: hidden;
+       }
+     </style>
+  </head>
+  <body onload="start()">
+     <script src="./three.js"></script>
+     <script src="./clock.js"></script>
+     <script>
+        function initObject(){
+        	var geometry = new THREE.BoxGeometry(100,100,100);
+
+        	for(var i = 0; i < geometry.faces.length ; i++){
+        		var hex = Math.random() * oxffffff;
+        		geometry.faces[i].color.setHex(hex);
+        		geometry.faces[i + 1].color.setHex(hex);
+        	}
+
+        	var material = new THREE.MeshBasicMaterial({
+        		vertexColors: THREE.FaceColors
+        	});
+        	mesh = new THREE.Mesh(geometry.material);
+        	mesh.position = new THREE.Vector3(0,0,0);
+        	scene.add(mesh);
+        }
+     </script>
+
+  </body>
+</html>
